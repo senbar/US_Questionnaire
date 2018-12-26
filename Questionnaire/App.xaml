@@ -10,6 +10,9 @@
         <DataTemplate DataType="{x:Type ViewModels:MainWindowViewModel}">
             <Views:MainWindow/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:RadioViewModel}">
+            <Views:QuestionRadioView/>
+        </DataTemplate>
     </Application.Resources>
     
 </Application>

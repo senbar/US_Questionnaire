@@ -55,9 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Answers.cs" />
+    <Compile Include="ViewModels\AnswerSection.cs" />
     <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ObservableObject.cs" />
+    <Compile Include="ViewModels\RadioViewModel.cs" />
     <Compile Include="Views\QuestionCheckView.xaml.cs">
       <DependentUpon>QuestionCheckView.xaml</DependentUpon>
     </Compile>

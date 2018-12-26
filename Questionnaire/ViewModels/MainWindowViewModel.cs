@@ -1,4 +1,5 @@
-﻿using System; using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace Questionnaire.ViewModels
 {
     public class MainWindowViewModel : ObservableObject
     {
-        private string _questionView;
-        public string QuestionView
+        private IAnswerSection _questionView;
+        public IAnswerSection QuestionView
         {
             get { return _questionView; }
             set
@@ -21,6 +22,8 @@ namespace Questionnaire.ViewModels
                 RaisePropertyChangedEvent("QuestionView");
             }
         }
+
+        private Models.Answers Answers = new Models.Answers();
 
         ObservableObject _viewModel;
         public ObservableObject ViewModel
@@ -35,24 +38,10 @@ namespace Questionnaire.ViewModels
                 RaisePropertyChangedEvent("ViewModel");
             }
         }
-
-        //private UserControl __questionView;
-        //public UserControl _QuestionView
-        //{
-        //    get { return __questionView; }
-        //    set
-        //    {
-        //        __questionView = value;
-        //        RaisePropertyChangedEvent("_QuestionView");
-
-        //    }
-        //}
-
         public MainWindowViewModel()
         {
             ViewModel = this;
-            _questionView = "QuestionRadioView.xaml";
-            //__questionView = new Questionnaire.Views.QuestionRadioView(); 
+            _questionView = new RadioViewModel();
         }
 
         public ICommand NextSlideCommand
@@ -62,10 +51,7 @@ namespace Questionnaire.ViewModels
 
         private void NextSlide()
         {
-            QuestionView = "QuestionCheckView.xaml";
-            //_QuestionView = new Questionnaire.Views.QuestionCheckView();
         } 
-
 
    }
 }
