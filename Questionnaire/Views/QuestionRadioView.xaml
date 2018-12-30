@@ -7,10 +7,8 @@
         xmlns:ViewModels="clr-namespace:Questionnaire.ViewModels"
         mc:Ignorable="d"
         Height="Auto" Width="Auto">
-    <UserControl.DataContext>
-        <ViewModels:RadioViewModel/>
-        </UserControl.DataContext>
-        <Grid>
+
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
@@ -22,8 +20,8 @@
                         <Setter Property="Margin" Value="0,10,0,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <RadioButton Content="Pizza"/>
-                <RadioButton Content="Kiełbasa"/>
+                <RadioButton Content="Pizza" IsChecked="{Binding Path=ButtonsStatus[0], Mode=TwoWay}"/>
+                <RadioButton Content="Kiełbasa" IsChecked="{Binding Path=ButtonsStatus[1], Mode=TwoWay}"/>
                 <RadioButton Content="Pączek"/>
                 <RadioButton Content="Brokuł"/>
                 <RadioButton Content="Lorem ipsum"/>

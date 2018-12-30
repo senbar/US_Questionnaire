@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Questionnaire.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,14 @@ namespace Questionnaire.Views
         public MainWindow()
         {
             InitializeComponent();
+            var mainWindowViewModel = new MainWindowViewModel();
+            this.DataContext = mainWindowViewModel;
+
+            this.QuestionContentFrame.Content = mainWindowViewModel.QuestionView;
+
+            
         }
+
         
     }
 }

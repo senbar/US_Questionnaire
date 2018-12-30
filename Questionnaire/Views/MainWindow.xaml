@@ -6,11 +6,8 @@
         xmlns:local="clr-namespace:Questionnaire.Views"
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
         xmlns:ViewModels="clr-namespace:Questionnaire.ViewModels"
-        mc:Ignorable="d" Margin="-1,0,0,0"
-        >
-    <UserControl.DataContext>
-        <ViewModels:MainWindowViewModel/>
-    </UserControl.DataContext>
+        mc:Ignorable="d" Margin="-1,0,0,0">
+    
     <Grid Grid.Column="3" Margin="0" >
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -37,7 +34,8 @@
             </Grid.RowDefinitions>
 
             <DockPanel Height="Auto" >
-                <Frame Content="{Binding QuestionView}"/>
+                <Frame Name="QuestionContentFrame">
+                </Frame>
             </DockPanel>
         </Grid>
 
@@ -53,7 +51,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="{Binding Path=QuestionView, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Padding="15"/>
+            <!--<Button Content="{Binding Path=QuestionView, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Padding="15"/>-->
             <Button Content="Następne" 
                     VerticalAlignment="Top" Width="Auto" Padding="15" Margin="0" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding NextSlideCommand}">
             </Button>

@@ -22,6 +22,7 @@ namespace Questionnaire.Views
         public QuestionRadioView()
         {
             InitializeComponent();
+            
         }
     }
 }

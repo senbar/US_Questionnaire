@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,8 @@ namespace Questionnaire.ViewModels
 {
     public class MainWindowViewModel : ObservableObject
     {
-        private IAnswerSection _questionView;
-        public IAnswerSection QuestionView
+        private RadioViewModel _questionView;
+        public RadioViewModel QuestionView
         {
             get { return _questionView; }
             set
@@ -43,7 +44,7 @@ namespace Questionnaire.ViewModels
             ViewModel = this;
             _questionView = new RadioViewModel();
         }
-
+        
         public ICommand NextSlideCommand
         {
             get { return new DelegateCommand(NextSlide); }
@@ -51,6 +52,8 @@ namespace Questionnaire.ViewModels
 
         private void NextSlide()
         {
+            RadioViewModel debugVar = (RadioViewModel)QuestionView;
+            Debug.WriteLine(String.Format("value at 0: {0}, value at 1 {1}", debugVar.ButtonsStatus[0], debugVar.ButtonsStatus[1]));
         } 
 
    }
