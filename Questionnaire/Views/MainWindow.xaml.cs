@@ -24,14 +24,15 @@ namespace Questionnaire.Views
         public MainWindow()
         {
             InitializeComponent();
+            /*Important: if i bind content of question frame in xaml binding mechanism will create new instance of viemodel class with basically
+            no way to bind them inside one class, relative data context binding doesnt work neither, you have to do it programitically*/
+
             var mainWindowViewModel = new MainWindowViewModel();
             this.DataContext = mainWindowViewModel;
 
-            this.QuestionContentFrame.Content = mainWindowViewModel.QuestionView;
-
-            
+            Binding QuestionBinding = new Binding("QuestionView");
+            QuestionBinding.Source = mainWindowViewModel;
+            this.QuestionContentFrame.SetBinding(Frame.ContentProperty, QuestionBinding);
         }
-
-        
     }
 }

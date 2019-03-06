@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Questionnaire.Views"
         mc:Ignorable="d"
-        Height="Auto" Width="Auto">
+        Height="Auto" Width="Auto"
+        >
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -18,13 +20,13 @@
                         <Setter Property="Margin" Value="0,10,0,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <CheckBox Content="Niebieski"/>
-                <CheckBox Content="Żółty"/>
-                <CheckBox Content="P"/>
-                <CheckBox Content="BIały"/>
-                <CheckBox Content="ipsum"/>
-                <CheckBox Content="Czerwony"/>
-                <CheckBox Content="C"/>
+                <CheckBox Content="{Binding Path=ButtonsText[0], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[0], Mode=TwoWay}"/>
+                <CheckBox Content="{Binding Path=ButtonsText[1], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[1], Mode=TwoWay}"/>
+                <CheckBox Content="{Binding Path=ButtonsText[2], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[2], Mode=TwoWay}"/>
+                <CheckBox Content="{Binding Path=ButtonsText[3], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[3], Mode=TwoWay}"/>
+                <CheckBox Content="{Binding Path=ButtonsText[4], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[4], Mode=TwoWay}"/>
+                <CheckBox Content="{Binding Path=ButtonsText[5], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[5], Mode=TwoWay}"/>
+                <CheckBox Content="{Binding Path=ButtonsText[6], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[6], Mode=TwoWay}"/>
             </StackPanel>
     </Grid>
 </UserControl>

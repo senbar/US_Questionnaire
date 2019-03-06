@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Questionnaire.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Questionnaire.Views
 {
     /// <summary>
-    /// Interaction logic for QuestionView.xaml
+    /// Interaction logic for ResultView.xaml
     /// </summary>
-    public partial class QuestionRadioView : UserControl 
+    public partial class ResultView : UserControl
     {
-        public QuestionRadioView()
+        public ResultView()
         {
             InitializeComponent();
-
         }
     }
 }

@@ -20,13 +20,13 @@
                         <Setter Property="Margin" Value="0,10,0,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <RadioButton Content="Pizza" IsChecked="{Binding Path=ButtonsStatus[0], Mode=TwoWay}"/>
-                <RadioButton Content="Kiełbasa" IsChecked="{Binding Path=ButtonsStatus[1], Mode=TwoWay}"/>
-                <RadioButton Content="Pączek"/>
-                <RadioButton Content="Brokuł"/>
-                <RadioButton Content="Lorem ipsum"/>
-                <RadioButton Content="Pizza"/>
-                <RadioButton Content="Chleb"/>
+                <RadioButton Content="{Binding Path=ButtonsText[0], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[0], Mode=TwoWay}"/>
+                <RadioButton Content="{Binding Path=ButtonsText[1], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[1], Mode=TwoWay}"/>
+                <RadioButton Content="{Binding Path=ButtonsText[2], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[2], Mode=TwoWay}"/>
+                <RadioButton Content="{Binding Path=ButtonsText[3], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[3], Mode=TwoWay}"/>
+                <RadioButton Content="{Binding Path=ButtonsText[4], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[4], Mode=TwoWay}"/>
+                <RadioButton Content="{Binding Path=ButtonsText[5], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[5], Mode=TwoWay}"/>
+                <RadioButton Content="{Binding Path=ButtonsText[6], Mode=OneWay}" IsChecked="{Binding Path=ButtonsData[6], Mode=TwoWay}"/>
             </StackPanel>
     </Grid>
 </UserControl>

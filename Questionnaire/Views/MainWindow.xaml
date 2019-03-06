@@ -34,7 +34,7 @@
             </Grid.RowDefinitions>
 
             <DockPanel Height="Auto" >
-                <Frame Name="QuestionContentFrame">
+                <Frame Name="QuestionContentFrame" NavigationUIVisibility="Hidden">
                 </Frame>
             </DockPanel>
         </Grid>

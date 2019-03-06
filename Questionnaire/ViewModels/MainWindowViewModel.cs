@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using Questionnaire.Models;
 
 namespace Questionnaire.ViewModels
 {
     public class MainWindowViewModel : ObservableObject
     {
-        private RadioViewModel _questionView;
-        public RadioViewModel QuestionView
+        private ObservableObject _questionView;
+        public ObservableObject QuestionView
         {
             get { return _questionView; }
             set
@@ -24,7 +25,7 @@ namespace Questionnaire.ViewModels
             }
         }
 
-        private Models.Answers Answers = new Models.Answers();
+        private Models.AnswersContext Answers = new Models.AnswersContext();
 
         ObservableObject _viewModel;
         public ObservableObject ViewModel
@@ -39,10 +40,19 @@ namespace Questionnaire.ViewModels
                 RaisePropertyChangedEvent("ViewModel");
             }
         }
+        
+        private CheckViewModel checkViewModel;
+        private RadioViewModel radioViewModel;
+        private ResultViewModel resultViewModel;
+
+
         public MainWindowViewModel()
         {
+            resultViewModel = new ResultViewModel();
+            radioViewModel=new RadioViewModel();
+            checkViewModel = new CheckViewModel();
             ViewModel = this;
-            _questionView = new RadioViewModel();
+            _questionView = radioViewModel;  
         }
         
         public ICommand NextSlideCommand
@@ -52,9 +62,40 @@ namespace Questionnaire.ViewModels
 
         private void NextSlide()
         {
-            RadioViewModel debugVar = (RadioViewModel)QuestionView;
-            Debug.WriteLine(String.Format("value at 0: {0}, value at 1 {1}", debugVar.ButtonsStatus[0], debugVar.ButtonsStatus[1]));
-        } 
+            //RadioViewModel debugVar = (RadioViewModel)QuestionView;
+            //Debug.WriteLine(String.Format("value at 0: {0}, value at 1 {1}", debugVar.ButtonsStatus[0], debugVar.ButtonsStatus[1]));
+            if (_questionView == radioViewModel)
+            {
+                QuestionView = checkViewModel;
+                return;
+            }
+            if (_questionView == checkViewModel)
+            {
+                QuestionView = resultViewModel;
+
+                int i = 0;
+                for(; i<radioViewModel.ButtonsData.Count; i++)
+                {
+                    if (radioViewModel.ButtonsData[i] == true)
+                    {
+                        resultViewModel.RadioAnswers.Add(radioViewModel.ButtonsText[i]);
+                    }
+                    if(checkViewModel.ButtonsData[i]== true)
+                    {
+                        resultViewModel.CheckAnswers.Add(radioViewModel.ButtonsText[i]);
+                    }
+                }
+
+
+
+            }
+        }
+
+        private void EndQuestions()
+        {
+            //add database connection
+
+        }
 
    }
 }
